@@ -9,14 +9,21 @@
 
 
 // Require the necessary discord.js classes
-const { Client, Collection, Events, GatewayIntentBits, Message } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
-require('dotenv').config;
+require('dotenv').config();
 const token = process.env.TOKEN;
+console.log(token);
 
 // Create a new client instance
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
+});
 
 
 client.commands = new Collection();
@@ -50,11 +57,6 @@ for (const file of eventFiles) {
     }
 }
 
-client.on("messageCreate", async message => {
-    if (/sku|gog|skog/.test(message.content)) {
-        message.channel.send("<3");
-    }
-});
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
@@ -73,3 +75,4 @@ client.on(Events.InteractionCreate, async interaction => {
 
 // Login to Discord with your client's token
 client.login(token);
+
