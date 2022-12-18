@@ -13,6 +13,9 @@ module.exports = {
 		if (message.author.id !== process.env.CLIENT_ID && /doot/.test(message.content)) {
 			message.client.channels.cache.get(message.channelId).send('doot')
 		}
-		console.log(`message content: ${message.content}`);
+		console.log(`Message from ${message.author.tag} at ${message.createdAt}\n` +
+					`Guild: ${message.channel.guild.name}\n` +
+					`Channel: ${message.channel.name}\n` +
+					`Content: ${message.content}\n`);
 	},
 };
