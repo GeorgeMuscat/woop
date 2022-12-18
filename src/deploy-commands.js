@@ -30,7 +30,9 @@ for (const file of commandFiles) {
 const rest = new REST({ version: '10' }).setToken(token);
 
 // and deploy your commands!
-(async () => {
+
+
+const refresh = async () => {
 	try {
 		console.log(`Started refreshing ${commands.length + (ipCommand !== null ? 1 : 0)} application (/) commands.`);
 
@@ -53,5 +55,5 @@ const rest = new REST({ version: '10' }).setToken(token);
 		// And of course, make sure you catch and log any errors!
 		console.error(error);
 	}
-})();
-
+};
+module.exports = { refresh }
