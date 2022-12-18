@@ -2,18 +2,16 @@ const { SlashCommandBuilder } = require('discord.js');
 const axios = require('axios');
 
 const getUrl = async () => {
-    const res = await axios.get('https://api.thecatapi.com/v1/images/search');
+    const res = await axios.get('https://random-d.uk/api/v2/random');
     let data = res.data;
-    return data[0].url
+    return data.url
 }
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('cat')
-        .setDescription('Replies with a random image of a cat!'),
+        .setName('duck')
+        .setDescription('Duck!'),
     async execute(interaction) {
         await interaction.reply(await getUrl());
     },
 };
-
-https://random-d.uk/api/v2/random
