@@ -10,6 +10,7 @@
 
 // Require the necessary discord.js classes
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
+const { exec } = require('child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 require('dotenv').config();
@@ -70,7 +71,7 @@ client.on(Events.InteractionCreate, async interaction => {
         await interaction.reply({ content: 'There was a error while executing this command!', ephemeral: true });
     }
 });
-
+exec('node ./deploy-commands.js');
 // Login to Discord with your client's token
 client.login(token);
 
