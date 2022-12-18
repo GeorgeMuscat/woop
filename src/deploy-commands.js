@@ -6,7 +6,7 @@ require('dotenv').config();
 const token = process.env.TOKEN;
 const guildId = process.env.GUILD_ID;
 const clientId = process.env.CLIENT_ID;
-
+console.log(token)
 
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
