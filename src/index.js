@@ -14,6 +14,7 @@ const { exec } = require('child_process');
 const fs = require('node:fs');
 const path = require('node:path');
 require('dotenv').config();
+const { refresh } = require('./deploy-commands');
 const token = process.env.TOKEN;
 console.log(token);
 
@@ -73,7 +74,10 @@ client.on(Events.InteractionCreate, async interaction => {
         await interaction.reply({ content: 'There was a error while executing this command!', ephemeral: true });
     }
 });
-exec('node ./deploy-commands.js');
+
+// Refresh deployed slash commands
+refresh();
+
 // Login to Discord with your client's token
 client.login(token);
 
