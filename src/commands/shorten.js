@@ -25,6 +25,6 @@ module.exports = {
         } else {
             await interaction.reply('Invalid input.')
         }
-        await interaction.reply(`You short link is: http://woop.li/${postURL(data)}`);
+        await interaction.reply(`You short link is: http://woop.li/${await postURL(data)}`);
     },
 };
