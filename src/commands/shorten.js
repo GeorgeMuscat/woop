@@ -15,8 +15,10 @@ module.exports = {
         .addStringOption(option => option.setName('slug').setDescription('Optional slug.')),
     async execute(interaction) {
         let data = {};
-        if (URL) {
-            data['dest'] = URL;
+        const url = interaction.options.getString('url');
+        const slug = interaction.options.getString('slug');
+        if (url) {
+            data['dest'] = url;
             if (slug) {
                 data['slug'] = slug;
             }
