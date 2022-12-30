@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('discord.js');
 
 const postURL = async (data) => {
     const res = await axios.post('http://woop.li/create', data);
-    let data = res.data;
+    data = res.data;
     return data.slug;
 }
 
