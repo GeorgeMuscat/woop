@@ -11,7 +11,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('shorten')
         .setDescription('Shortens a URL.')
-        .addStringOption(option => option.setName('URL').setDescription('The URL to be shortened.').setRequired(true))
+        .addStringOption(option => option.setName('url').setDescription('The URL to be shortened.').setRequired(true))
         .addStringOption(option => option.setName('slug').setDescription('Optional slug.')),
     async execute(interaction) {
         let data = {};
